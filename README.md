@@ -1,6 +1,7 @@
 # New-Zealand-Export-Data.
 New Zealand’s exports in 2025 show resilient growth and broad market reach, with $665bn in total sales powered by top-performing regions, items, and sales channels. Strategic diversification and strong demand across countries highlight sustained economic strength despite global trade challenges.
 
+
 <img width="1284" height="725" alt="image" src="https://github.com/user-attachments/assets/02517462-f126-4396-b384-9b99ae29f6bd" />
 
 
@@ -25,8 +26,8 @@ Top Regions: Europe & Sub-Saharan Africa (both $0.17T)
 Sales Channel: Online slightly leads Offline
 
 
-
 <img width="1285" height="714" alt="image" src="https://github.com/user-attachments/assets/b36e5697-818e-495d-87f1-32e5c462f647" />
+
 
 This dashboard provides a country-wise sorted analysis of New Zealand’s exports from 2010 to 2016, ranking countries by metrics like total sales and profit. The report features 185 countries, highlighting their individual sales and profitability for better comparison and insight.
 
@@ -55,13 +56,14 @@ Units Sold: 2.5bn
 
 Avg Delivery: 25.00 days
 
-Sorted Table Insights:
-
+**Sorted Table Insights**
 Each country’s order ID, sales, and profit are clearly listed for comparison.
 
 Countries can be sorted to quickly identify those contributing most to total sales or profit.
 
+
 <img width="1278" height="713" alt="image" src="https://github.com/user-attachments/assets/323ddffb-5d51-4da1-b2a8-f21cec89df79" />
+
 
 This region-sorted dashboard shows New Zealand’s export performance by region from 2010 to 2016. Sub-Saharan Africa and Europe clearly lead with the highest sales and profits, allowing instant identification of top regions.
 
@@ -82,7 +84,10 @@ Top Profit Region: Sub-Saharan Africa ($2.1bn)
 
 Lowest Sales Region: North America ($15bn)
 
+
 <img width="1278" height="713" alt="image" src="https://github.com/user-attachments/assets/1b4f13b3-c041-4950-bc87-08313b88c948" />
+
+
 This analysis sorts New Zealand's export items by top sales and profit, highlighting the most significant product categories for rapid insight.
 
 ** Item Export Results**
@@ -97,7 +102,9 @@ Lowest Sales Item: Fruits ($1.9bn)
 
 This concise format makes it easy to instantly spot the best- and worst-performing export items for strategic decision-making.
 
+
 <img width="1282" height="723" alt="image" src="https://github.com/user-attachments/assets/72da1e25-699a-4040-8523-9b6b1c9e9c4b" />
+
 
 This dashboard provides a sorted review of export sales channels, making it easy to compare online and offline performance.
 

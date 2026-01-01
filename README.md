@@ -165,3 +165,150 @@ YTD Sales Peak: $66bn in Sep 2016
 Units Sold: 2.5bn | Avg Delivery Days: 25
 
 This view highlights Q2 as the peak sales period, overall steady annual sales, and a recent dip in 2017, providing a clear chronological export performance summary.
+
+
+Below is a **complete MySQL query set** designed exactly for your **New Zealand Export Dashboard**, with:
+
+* ✅ **1 Summary Dashboard**
+* ✅ **Separate Report Pages** for each profile (as requested)
+
+Assumed table name: **`nz_exports`**
+
+Column names use underscores for MySQL compatibility:
+`region, country, item_type, sales_channel, order_priority, order_date, order_id, ship_date, units_sold, unit_price, unit_cost`
+
+---
+
+# 📊 1. SUMMARY DASHBOARD – GENERAL KPIs
+
+```sql
+SELECT
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * unit_cost), 2) AS total_cost,
+    SUM(units_sold) AS total_units_sold,
+    ROUND(AVG(DATEDIFF(ship_date, order_date)), 2) AS avg_delivery_days
+FROM nz_exports;
+```
+
+---
+
+# 📅 2. DATE–TIME ANALYSIS (Report Page)
+
+### Yearly Performance
+
+```sql
+SELECT
+    YEAR(order_date) AS year,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * (unit_price - unit_cost)), 2) AS total_profit,
+    SUM(units_sold) AS units_sold
+FROM nz_exports
+GROUP BY YEAR(order_date)
+ORDER BY year;
+```
+
+### Quarterly Sales
+
+```sql
+SELECT
+    YEAR(order_date) AS year,
+    QUARTER(order_date) AS quarter,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales
+FROM nz_exports
+GROUP BY YEAR(order_date), QUARTER(order_date)
+ORDER BY year, quarter;
+```
+
+---
+
+# 🌍 3. REGION PROFILE (Report Page)
+
+```sql
+SELECT
+    region,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * (unit_price - unit_cost)), 2) AS total_profit,
+    SUM(units_sold) AS units_sold,
+    ROUND(AVG(DATEDIFF(ship_date, order_date)), 2) AS avg_delivery_days
+FROM nz_exports
+GROUP BY region
+ORDER BY total_sales DESC;
+```
+
+---
+
+# 🌎 4. COUNTRY PROFILE (Report Page)
+
+```sql
+SELECT
+    country,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * (unit_price - unit_cost)), 2) AS total_profit,
+    SUM(units_sold) AS units_sold
+FROM nz_exports
+GROUP BY country
+ORDER BY total_sales DESC;
+```
+
+---
+
+# 📦 5. ITEM PROFILE (Report Page)
+
+```sql
+SELECT
+    item_type,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * (unit_price - unit_cost)), 2) AS total_profit,
+    COUNT(order_id) AS total_orders
+FROM nz_exports
+GROUP BY item_type
+ORDER BY total_sales DESC;
+```
+
+---
+
+# 🛒 6. SALES CHANNEL PROFILE (Report Page)
+
+```sql
+SELECT
+    sales_channel,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * (unit_price - unit_cost)), 2) AS total_profit,
+    SUM(units_sold) AS units_sold
+FROM nz_exports
+GROUP BY sales_channel
+ORDER BY total_sales DESC;
+```
+
+---
+
+# 🚦 7. ORDER PRIORITY PROFILE (Report Page)
+
+```sql
+SELECT
+    order_priority,
+    ROUND(SUM(units_sold * unit_price), 2) AS total_sales,
+    ROUND(SUM(units_sold * (unit_price - unit_cost)), 2) AS total_profit,
+    SUM(units_sold) AS units_sold
+FROM nz_exports
+GROUP BY order_priority
+ORDER BY total_sales DESC;
+```
+
+---
+
+## ✅ How This Maps to Your Dashboard
+
+| Dashboard Requirement  | Query Provided |
+| ---------------------- | -------------- |
+| Summary KPIs           | ✔              |
+| Date-Time Analysis     | ✔              |
+| Region Profile         | ✔              |
+| Country Profile        | ✔              |
+| Item Profile           | ✔              |
+| Sales Channel Profile  | ✔              |
+| Order Priority Profile | ✔              |
+
+---
+
+
